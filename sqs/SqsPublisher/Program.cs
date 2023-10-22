@@ -3,8 +3,7 @@ using Amazon.SQS;
 using Amazon.SQS.Model;
 using SqsPublisher;
 
-// local machine already authenticated
-var sqsClient = new AmazonSQSClient();
+var sqsClient = new AmazonSQSClient(); // no credentials in object because local machine already authenticated
 
 var customer = new CustomerCreated
 {
@@ -37,3 +36,4 @@ var sendMessageRequest = new SendMessageRequest
 
 
 await sqsClient.SendMessageAsync(sendMessageRequest);
+Console.WriteLine("Message send.");
